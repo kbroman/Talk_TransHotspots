@@ -1,0 +1,155 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title info
+\title{Dissecting trans-eQTL bands}
+\author{Karl Broman \& Jianan Tian}
+\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
+\date{}
+
+
+\begin{document}
+
+% title slide
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+}
+}
+
+
+\begin{frame}[c]{B6 $\times$ BTBR cross}
+
+  \begin{itemize}
+  \item B6 $\times$ BTBR intercross
+  \item All leptin knockouts
+  \item $\sim$500 individuals
+  \item Genotyped at 2000 SNPs
+  \item Agilent 2-color gene expression microarrays
+    \begin{itemize}
+    \item adipose
+    \item gastrocaemous muscle
+    \item hypothalamus
+    \item kidney
+    \item liver
+    \item pancreatic islets
+    \end{itemize}
+  \end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}[c]{eQTL results}
+
+\figw{TransBandsPaper/Figs/plot-eqtl.pdf}{1.1}
+
+\end{frame}
+
+
+\begin{frame}[c]{LDA \& PCA: Islet c2}
+\figw{Figs/ldapca_islet2.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{LDA \& PCA: Islet c6}
+\figw{Figs/ldapca_islet6.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{LDA \& PCA: Kidney c13}
+\figw{Figs/ldapca_kidney13.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{LDA \& PCA: Liver c17}
+\figw{Figs/ldapca_liver17.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{LDA \& PCA: Adipose c10}
+\figw{Figs/ldapca_adipose10.pdf}{1.2}
+\end{frame}
+
+
+
+\begin{frame}[c]{eQTL effects: Kidney c13}
+\figw{Figs/effects_kidney13.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{eQTL effects: Islet c6}
+\figw{Figs/effects_islet6.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{eQTL effects: Islet c2}
+\figw{Figs/effects_islet2.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{eQTL effects: Liver c17}
+\figw{Figs/effects_liver17.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{eQTL effects: Adipose c10}
+\figw{Figs/effects_adipose10.pdf}{1.2}
+\end{frame}
+
+
+\begin{frame}[c]{Formal test for 1 vs 2 QTL}
+
+  \begin{itemize}
+  \itemsep12pt
+  \item Consider a set of traits mapping to common eQTL
+  \item Multivariate QTL analysis with 1 or 2 QTL
+  \item With 2-QTL model, each trait affected by one or the other QTL
+    \begin{itemize}
+      \item Order traits by est'd QTL location when considered
+        separately
+      \item Consider cut points of the list, assign first group to one
+        QTL and second group to other.
+    \end{itemize}
+  \item P-value: parametric bootstrap or stratified permutation
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[c]{1 vs 2 QTL: Kidney c13}
+\figw{Figs/formal_kidney13.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{1 vs 2 QTL: Islet c6}
+\figw{Figs/formal_islet6.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{1 vs 2 QTL: Islet c2}
+\figw{Figs/formal_islet2.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{1 vs 2 QTL: Liver c17}
+\figw{Figs/formal_liver17.pdf}{1.2}
+\end{frame}
+
+\begin{frame}[c]{1 vs 2 QTL: Adipose c10}
+\figw{Figs/formal_adipose10.pdf}{1.2}
+\end{frame}
+
+
+\begin{frame}[c]{Summary}
+  \begin{itemize}
+  \item Exploratory plots
+    \begin{itemize}
+    \item LDA or PCA results
+    \item Sign of eQTL effect
+    \item Degree of dominance
+    \end{itemize}
+  \item Formal test of 1 vs 2 QTL
+  \end{itemize}
+\end{frame}
+
+\end{document}
