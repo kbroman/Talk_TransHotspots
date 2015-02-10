@@ -1,0 +1,10 @@
+Figs/
+R/*.Rout
+TransBandsPaper
+*.aux
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.toc
