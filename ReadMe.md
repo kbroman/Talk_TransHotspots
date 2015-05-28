@@ -1,8 +1,9 @@
 ## Talk on &ldquo;Dissection and fine-mapping of trans-eQTL hotspots&rdquo;
 
-These are slides for a talk that I will give at the Complex Trait
-Community meeting in Portland, Oregon, on 8 June 2015. I gave a
-version of this talk (remotely) to the
+These are slides for a talk that I will give at the
+[Complex Trait Community meeting](http://www.complextrait.org/ctc2015/)
+in Portland, Oregon, on 11 June 2015. I gave a version of this talk
+(remotely) to the
 [Jackson Lab Center for Genome Dynamics](http://cgd.jax.org) on 10 Feb
 2015.
 
