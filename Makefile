@@ -1,6 +1,6 @@
-all: jax_transbands.pdf Figs/plot_all.pdf Figs/plot_all_bychr.pdf
+all: trans_eqtl_hotspots.pdf Figs/plot_all.pdf Figs/plot_all_bychr.pdf
 
-jax_transbands.pdf: jax_transbands.tex Figs/ldapca_islet6.pdf Figs/effects_islet6.pdf Figs/formal_islet6.pdf
+trans_eqtl_hotspots.pdf: trans_eqtl_hotspots.tex Figs/ldapca_islet6.pdf Figs/effects_islet6.pdf Figs/formal_islet6.pdf
 	xelatex $<
 
 Figs/ldapca_islet6.pdf: R/lda_pca.R
