@@ -7,7 +7,7 @@ nlay <- 25
 addqtl <- function(qtlloc,qtlgn){
   abline(h=qtlloc,col="yellow",lwd=2)
   points(1:n, rep(qtlloc, n), cex=1.4, pch=23, col="black", bg=color[qtlgn])
-  axis(side=4, tick=FALSE, qtlloc, "QTL", las=1, mgp=c(0, 0.5, 0), cex.axis=1.5)
+  axis(side=4, tick=FALSE, qtlloc, "QTL", las=1, mgp=c(0, 0.5, 0), cex.axis=1.8)
 }
 
 addgn <- function(g){
@@ -18,7 +18,7 @@ addgn <- function(g){
   }
 }
 
-myplotgeno <- function(map,g, mar=c(6.1, 5.6, 3.1, 3.6), mgp=c(4.1,0.2, 0),
+myplotgeno <- function(map,g, mar=c(2.6, 7.6, 3.1, 4.1), mgp=c(1.1,0, 0),
                        axislab, axislabadj)
 {
     if(missing(axislab)) axislab <- seq(along=map)
@@ -32,10 +32,10 @@ myplotgeno <- function(map,g, mar=c(6.1, 5.6, 3.1, 3.6), mgp=c(4.1,0.2, 0),
        xlim=c(0.2, n+0.8), xaxs="i",
        ylim=c(map[p], map[1]),
        ylab="", xlab="Mouse", yaxt="n",xaxt="n",cex.lab=1.5)
-  title(ylab="Position (Mbp)", mgp=c(4.1, 0, 0),cex.lab=1.5)
+  title(ylab="Position (Mbp)", mgp=c(6.1, 0, 0),cex.lab=1.5)
 
   map.p <- map[axislab]
-  axis(side=2, tick=FALSE, map.p+axislabadj, sprintf("%.2f",map.p), las=1, mgp=c(0, 0.2, 0), cex.axis=1)
+  axis(side=2, tick=FALSE, map.p+axislabadj, sprintf("%.2f",map.p), las=1, mgp=c(0, 0.2, 0), cex.axis=1.8)
 
   u <- par("usr")
   rect(u[1], u[3], u[2], u[4],col="grey80", border=TRUE)

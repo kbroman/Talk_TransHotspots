@@ -63,7 +63,7 @@ w2 <- (map[p]-map[1])/100*2
 # Panel A
 hcolor <- "black"
 hlwd <- 1
-myplotgeno(map, g, axislab=c(1,3,4,6,7,8,11))
+myplotgeno(map, g, axislab=c(1,7,8,11))
 rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,col=hgrey,border=hcolor,lwd=hlwd)
 myplotgeno.eh(map,g, rect=c(32-w1,map[7]-w2, 60+w1,map[8]+w2))
 i <- which(gn[,flankm[1]] != qtlgn)
@@ -73,10 +73,6 @@ segments(x0=i,y0=map[flankm[2]],y1=qtlloc,col=color[qtlgn[i]],lwd=3, lend=1, ljo
 addqtl(qtlloc,qtlgn)
 addgn(g)
 rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,border=hcolor,lwd=hlwd)
-at <- c(32:52, 54:60)
-axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
-axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
-
 u <- par("usr")
 rect(u[1], u[3], u[2], u[4], border=TRUE)
 
@@ -87,9 +83,9 @@ textcolor <- color
 textcolor[2] <- "#af5500"
 textcolor[1] <- "#4a3aad"
 text(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6), u[4]+diff(u[3:4])*0.08,
-     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.5)
+     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.8)
 points(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6)-1.5, rep(u[4]+diff(u[3:4])*0.08,3),
-     pch=21, bg=color, xpd=TRUE, cex=1.5)
+     pch=16, col=color, xpd=TRUE, cex=2.1)
 
 
 
@@ -145,7 +141,7 @@ w2 <- (map[p]-map[1])/100*2
 
 ###########################################
 # Panel B
-myplotgeno(map,g)
+myplotgeno(map,g, axislab=c(1,2,3,7))
 rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd,col=hgrey)
 
 myplotgeno.eh(map,g,rect=c(1-w1,map[m1]-w2,8+w1,map[m2]+w2))
@@ -156,7 +152,6 @@ segments(x0=i,y0=map[m2],y1=qtlloc,col=color[qtlgn[i]],lwd=3, lend=1, ljoin=1)
 addqtl(qtlloc,qtlgn)
 addgn(g)
 rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd)
-axis(side=1, at=seq(along=MouseNum), labels=MouseNum, las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 
 u <- par("usr")
 rect(u[1], u[3], u[2], u[4], border=TRUE)
@@ -200,15 +195,13 @@ w2 <- (map[p]-map[1])/100*2
 ##############################################################
 # Panel C
 
-myplotgeno(map,g, axislab=c(1:4,6,8,9,11,12,13,16),
-           axislabadj=c(rep(0,8), -0.01, 0),
-           mar=c(6.1, 9.6, 3.1, 3.6))
+myplotgeno(map,g, axislab=c(1,5,13,16),
+           mar=c(2.6, 9.6, 3.1, 4.1))
 u <- par("usr")
 rect(u[1], map[m1], u[2], map[m4], col=hgrey)
 myplotgeno.eh(map,g, rect=c(u[1], map[m1], u[2], map[m4]))
 addqtl(qtlloc + 0.015,qtlgn)
 rect(u[1], u[3], u[2], u[4], border=TRUE)
-axis(side=1, at=seq(along=MouseNum), labels=MouseNum, las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 
 
 ########################################
@@ -221,7 +214,7 @@ genepos <- range(data[,2:3])
 
 ##############################
 # Panel D (gene locations)
-par(col.lab="slateblue", mar=c(6.1, 0.6, 3.1, 4.1))
+par(col.lab="slateblue", mar=c(2.6, 0.6, 3.1, 4.1))
 plot(0,0,type="n", bty="n", xlab="", ylab="", xaxt="n", yaxt="n",mgp=c(0,0,0),
      ylim=range(map)[2:1], xlim=c(1, 10))
 
@@ -234,12 +227,12 @@ for(i in 1:p)
 textadj <- c(0, 0.015)
 for(i in c(4,5)){
   rect(3.6, data[i,2],4,data[i,3],col="grey80")
-  text(3.7, data[i,2]+textadj[i-3], data[i,1],pos=4,cex=1.4,xpd=TRUE, font=3)
+  text(3.7, data[i,2]+textadj[i-3], data[i,1],pos=4,cex=1.8,xpd=TRUE, font=3)
 }
 
 h <- 4
 rect(h+0.6, data[8,2], h+1, data[8,3],col="grey80")
-text(h+0.7, data[8,2]+0.015, data[8,1],pos=4,cex=1.4,xpd=TRUE, font=3)
+text(h+0.7, data[8,2]+0.015, data[8,1],pos=4,cex=1.8,xpd=TRUE, font=3)
 
 dev.off()
 
@@ -308,7 +301,7 @@ w2 <- (map[p]-map[1])/100*2
 # Panel A
 hcolor <- "black"
 hlwd <- 1
-myplotgeno(map, g, axislab=c(1,3,4,6,7,8,11))
+myplotgeno(map, g, axislab=c(1,7,8,11))
 rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,col=hgrey,border=hcolor,lwd=hlwd)
 myplotgeno.eh(map,g, rect=c(32-w1,map[7]-w2, 60+w1,map[8]+w2))
 i <- which(gn[,flankm[1]] != qtlgn)
@@ -318,9 +311,6 @@ segments(x0=i,y0=map[flankm[2]],y1=qtlloc,col=color[qtlgn[i]],lwd=3, lend=1, ljo
 addqtl(qtlloc,qtlgn)
 addgn(g)
 rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,border=hcolor,lwd=hlwd)
-at <- c(32:52, 54:60)
-axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
-axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
 u <- par("usr")
 rect(u[1], u[3], u[2], u[4], border=TRUE)
 
@@ -331,9 +321,9 @@ textcolor <- color
 textcolor[2] <- "#af5500"
 textcolor[1] <- "#4a3aad"
 text(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6), u[4]+diff(u[3:4])*0.08,
-     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.5)
+     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.8)
 points(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6)-1.5, rep(u[4]+diff(u[3:4])*0.08,3),
-     pch=21, bg=color, xpd=TRUE, cex=1.5)
+     pch=16, col=color, xpd=TRUE, cex=2.1)
 
 
 ########################################
@@ -389,7 +379,7 @@ rect(u[1], u[3], u[2], u[4], border=TRUE)
 
 ###########################################
 # Panel B
-myplotgeno(map,g)
+myplotgeno(map,g, axislab=c(1,2,3,7))
 rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd,col=hgrey)
 
 myplotgeno.eh(map,g,rect=c(1-w1,map[m1]-w2,8+w1,map[m2]+w2))
@@ -400,7 +390,6 @@ segments(x0=i,y0=map[m2],y1=qtlloc,col=color[qtlgn[i]],lwd=3, lend=1, ljoin=1)
 addqtl(qtlloc,qtlgn)
 addgn(g)
 rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd)
-axis(side=1, at=seq(along=MouseNum), labels=MouseNum, las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 
 u <- par("usr")
 rect(u[1], u[3], u[2], u[4], border=TRUE)
@@ -471,7 +460,7 @@ w2 <- (map[p]-map[1])/100*2
 # Panel A
 hcolor <- "black"
 hlwd <- 1
-myplotgeno(map, g, axislab=c(1,3,4,6,7,8,11))
+myplotgeno(map, g, axislab=c(1,7,8,11))
 rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,col=hgrey,border=hcolor,lwd=hlwd)
 myplotgeno.eh(map,g, rect=c(32-w1,map[7]-w2, 60+w1,map[8]+w2))
 i <- which(gn[,flankm[1]] != qtlgn)
@@ -481,9 +470,6 @@ segments(x0=i,y0=map[flankm[2]],y1=qtlloc,col=color[qtlgn[i]],lwd=3, lend=1, ljo
 addqtl(qtlloc,qtlgn)
 addgn(g)
 rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,border=hcolor,lwd=hlwd)
-at <- c(32:52, 54:60)
-axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
-axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
 u <- par("usr")
 rect(u[1], u[3], u[2], u[4], border=TRUE)
 
@@ -494,9 +480,9 @@ textcolor <- color
 textcolor[2] <- "#af5500"
 textcolor[1] <- "#4a3aad"
 text(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6), u[4]+diff(u[3:4])*0.08,
-     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.5)
+     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.8)
 points(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6)-1.5, rep(u[4]+diff(u[3:4])*0.08,3),
-     pch=21, bg=color, xpd=TRUE, cex=1.5)
+     pch=16, col=color, xpd=TRUE, cex=2.1)
 
 
 
