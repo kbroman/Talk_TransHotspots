@@ -2,7 +2,7 @@ data.folder <- "../AttieData/"
 source("myplotgeno.R")
 
 pdf("../Figs/islet_c6_geno_C.pdf", height=6,width=10, pointsize=10)
-layout(rbind(c(1,1,1,1), c(2,5,3,4)),width=c(7,2,4,2))
+layout(rbind(c(1,1,1), c(2,3,4)),width=c(8.5,4.5,2))
 
 ########################################
 # Data for Panel A
@@ -184,7 +184,8 @@ rect(u[1], u[3], u[2], u[4], border=TRUE)
 # Panel C
 
 myplotgeno(map,g, axislab=c(1:4,6,8,9,11,12,13,16),
-           axislabadj=c(rep(0,8), -0.01, 0))
+           axislabadj=c(rep(0,8), -0.01, 0),
+           mar=c(6.1, 9.6, 3.1, 3.6))
 u <- par("usr")
 rect(u[1], map[m1], u[2], map[m4], col=hgrey)
 myplotgeno.eh(map,g, rect=c(u[1], map[m1], u[2], map[m4]))
@@ -223,22 +224,13 @@ h <- 4
 rect(h+0.6, data[8,2], h+1, data[8,3],col="grey80")
 text(h+0.7, data[8,2]+0.015, data[8,1],pos=4,cex=1.4,xpd=TRUE, font=3)
 
-
-
-##############################
-# legend
-par(mar=rep(0.1, 4))
-plot(0, 0,type="n", xaxt="n", yaxt="n", xlab="", ylab="", bty="n",
-     xlim=c(0,100), ylim=c(0, 100))
-legend(10, 80, cex=2, pch=21, col="black", pt.bg=color, c("BB", "BR", "RR"))
-
 dev.off()
 
 
 ######################################################################
 
 pdf("../Figs/islet_c6_geno_B.pdf", height=6,width=10, pointsize=10)
-layout(rbind(c(1,1,1,1), c(2,3,4,5)),width=c(7,2,4,2))
+layout(rbind(c(1,1,1), c(2,3,4)),width=c(8.5,4.5,2))
 
 ########################################
 # Data for Panel A
@@ -381,23 +373,12 @@ rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd)
 axis(side=1, at=seq(along=MouseNum), labels=MouseNum, las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 
 
-
-
-
-
-##############################
-# legend
-par(mar=rep(0.1, 4))
-plot(0, 0,type="n", xaxt="n", yaxt="n", xlab="", ylab="", bty="n",
-     xlim=c(0,100), ylim=c(0, 100))
-legend(10, 80, cex=2, pch=21, col="black", pt.bg=color, c("BB", "BR", "RR"))
-
 dev.off()
 
 ######################################################################
 
 pdf("../Figs/islet_c6_geno_A.pdf", height=6,width=10, pointsize=10)
-layout(rbind(c(1,1,1,1), c(3,2,4,5)),width=c(7,2,4,2))
+layout(rbind(c(1,1,1), c(2,3,4)),width=c(8.5,4.5,2))
 
 ########################################
 # Data for Panel A
@@ -473,12 +454,5 @@ axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
 
 
-
-##############################
-# legend
-par(mar=rep(0.1, 4))
-plot(0, 0,type="n", xaxt="n", yaxt="n", xlab="", ylab="", bty="n",
-     xlim=c(0,100), ylim=c(0, 100))
-legend(10, 80, cex=2, pch=21, col="black", pt.bg=color, c("BB", "BR", "RR"))
 
 dev.off()
