@@ -77,11 +77,11 @@ for(i in 1:3) {
   else xx <- max(xx) + 0.3
   text(xx,
        median(y[qtlgn==i]), c("BB", "BR", "RR")[i],
-       col=textcolor[i])
+       col=textcolor[i], cex=1.5)
 }
 
 legend("bottomright", pch=21, pt.bg="yellow", col="black", "recombinant",
-       bg="gray80")
+       bg="gray80", cex=1.5)
 dev.off()
 
 ######################################################################
@@ -101,6 +101,6 @@ for(i in 1:3) {
   else xx <- max(xx) + 0.3
   text(xx,
        median(y[qtlgn==i]), c("BB", "BR", "RR")[i],
-       col=textcolor[i])
+       col=textcolor[i], cex=1.5)
 }
 dev.off()
