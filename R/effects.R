@@ -13,6 +13,8 @@ map <- pull.map(f2g)
 toplot <- data.frame(tissue=c("islet", "islet", "kidney", "liver", "adipose"),
                      chr=c(6, 2, 13, 17, 10), stringsAsFactors=FALSE)
 
+source("my_plotGenetpattern.R")
+
 for(i in 1:nrow(toplot)) {
     cat(i,"\n")
 
@@ -26,9 +28,11 @@ for(i in 1:nrow(toplot)) {
     out <- attr(transband, "out")
     chr <- attr(transband, "info")$chr
 
-    par(mar=c(3,3,2,2))
+    par(mar=c(3,3,2,2),las=1)
     plotLODsign(maxPOS=out$pos, LODsign=sign(out$eff.a)*out$lod1, map=map[[chr]],
                 main="signed LOD")
-    plotGenetpattern(a=out$eff.a, d=out$eff.d, main="Inheritance Pattern")
+    par(las=1)
+    my_plotGenetpattern(a=out$eff.a, d=out$eff.d, main="Inheritance Pattern",
+                        xlab="Additive effect", ylab="Dominance effect")
     dev.off()
 }

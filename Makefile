@@ -29,7 +29,7 @@ Figs/islet_c6_geno_C.pdf: R/islet_c6_geno.R R/myplotgeno.R
 Figs/ldapca_islet6.pdf: R/lda_pca.R
 	cd R;R CMD BATCH $(<F)
 
-Figs/effects_islet6.pdf: R/effects.R
+Figs/effects_islet6.pdf: R/effects.R R/my_plotGenetpattern.R
 	cd R;R CMD BATCH $(<F)
 
 Figs/formal_islet6.pdf: R/formal.R
