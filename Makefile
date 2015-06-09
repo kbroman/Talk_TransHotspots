@@ -35,11 +35,5 @@ Figs/effects_islet6.pdf: R/effects.R R/my_plotGenetpattern.R
 Figs/formal_islet6.pdf: R/formal.R
 	cd R;R CMD BATCH $(<F)
 
-Figs/plot_all.pdf: R/plot_all.R
-	cd R;R CMD BATCH $(<F)
-
-Figs/plot_all_bychr.pdf: R/plot_all_bychr.R
-	cd R;R CMD BATCH $(<F)
-
 web: trans_eqtl_hotspots.pdf trans_eqtl_hotspots_withnotes.pdf
 	scp $^ broman-10.biostat.wisc.edu:public_html/presentations/
