@@ -27,11 +27,11 @@ for(i in 1:6) {
 
 
 ymax <- 185
-pdf("../Figs/chr6_lod.pdf",w=9.5,h=6)
-par(cex.lab=1.1)
+pdf("../Figs/chr6_lod.pdf",w=9.5,h=6.5)
+par(cex.lab=1.1, cex.main=1.8)
 par(mfrow=c(2,3))
 par(las=1, col.lab="slateblue", col.main="firebrick",
-    mar=c(3.1, 3.1, 1.6, 1.1))
+    mar=c(3.1, 3.1, 2.6, 1.1))
 
 x <- seq(0, 150, by=20)
 y <- seq(0, 175, by=25)

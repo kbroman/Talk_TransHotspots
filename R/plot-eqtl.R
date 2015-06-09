@@ -3,7 +3,7 @@ source("my_ploteQTL.R")
 data.folder <- "../AttieData/"
 data.folder.2 <- "../eQTLscans/"
 if(!file.exists("../Figs")) dir.create("../Figs")
-pdf("../Figs/plot-eQTL.pdf", w=9.5, h=6)
+pdf("../Figs/plot-eQTL.pdf", w=9.5, h=6.5)
 
 ##############################
 # eqtl results
@@ -30,7 +30,7 @@ tissues <- c("adipose", "gastroc", "hypo", "islet", "kidney", "liver")
 lod.thr <- 5
 
 par(col.main="firebrick")
-par(mfrow=c(2,3))
+par(mfrow=c(2,3), cex.main=1.8)
 for(tissue in tissues[c(4,1:3,5:6)]){
   tmp <- peaks[[tissue]][peaks[[tissue]]$lod1 >= lod.thr, ]
   tmp <- tmp[order(tmp$lod1),]

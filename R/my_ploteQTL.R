@@ -44,7 +44,7 @@ my_ploteQTL <- function(marker.info, probepos, phenonames,
   col.lab <- "slateblue"
 
   if(!add){
-    par(mar=c(2.6, 2.6, 1.6, 0.6), pty="s")
+    par(mar=c(2.6, 2.6, 2.6, 0.6), pty="s")
     par(col.lab=col.lab, cex.lab=cex.lab)
 
     plot(0, 0, type="n", xlim=c(-1, max(csL)+1), ylim=c(-1, max(csL)+1),
