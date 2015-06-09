@@ -10,3 +10,4 @@ TransBandsPaper
 *.toc
 AttieData
 eQTLscans
+R/cache
