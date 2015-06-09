@@ -26,7 +26,7 @@ Figs/islet_c6_pca.pdf: R/islet_c6_pca.R
 Figs/islet_c6_geno_C.pdf: R/islet_c6_geno.R R/myplotgeno.R
 	cd $(<D); R CMD BATCH $(R_opt) $(<F)
 
-Figs/ldapca_islet6.pdf: R/lda_pca.R
+Figs/ldapca_islet6.pdf: R/lda_pca.R R/my_plottrans.R
 	cd R;R CMD BATCH $(<F)
 
 Figs/effects_islet6.pdf: R/effects.R R/my_plotGenetpattern.R
