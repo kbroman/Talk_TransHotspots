@@ -77,10 +77,25 @@ at <- c(32:52, 54:60)
 axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
 
+u <- par("usr")
+rect(u[1], u[3], u[2], u[4], border=TRUE)
+
+
+########################################
+# legend
+textcolor <- color
+textcolor[2] <- "#af5500"
+textcolor[1] <- "#4a3aad"
+text(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6), u[4]+diff(u[3:4])*0.08,
+     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.5)
+points(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6)-1.5, rep(u[4]+diff(u[3:4])*0.08,3),
+     pch=21, bg=color, xpd=TRUE, cex=1.5)
+
+
+
 ########################################
 # Data for panel B
 
-u <- par("usr")
 uw <- (u[2]-u[1])*0.04
 load("../Data/Chr6.genotype.map.2013-11-08.RData")
 
@@ -126,7 +141,6 @@ qtlloc <- mean(map[flankm])
 
 w1 <- 0.5
 w2 <- (map[p]-map[1])/100*2
-rect(u[1], u[3], u[2], u[4], border=TRUE)
 
 
 ###########################################
@@ -143,6 +157,10 @@ addqtl(qtlloc,qtlgn)
 addgn(g)
 rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd)
 axis(side=1, at=seq(along=MouseNum), labels=MouseNum, las=2, tick=FALSE, mgp=c(0, 0.4, 0))
+
+u <- par("usr")
+rect(u[1], u[3], u[2], u[4], border=TRUE)
+
 
 ######################################################################
 # Data for Panel C
@@ -176,7 +194,6 @@ qtlloc <- mean(map[flankm]) - 0.01
 
 w1 <- 0.5
 w2 <- (map[p]-map[1])/100*2
-rect(u[1], u[3], u[2], u[4], border=TRUE)
 
 
 
@@ -304,11 +321,24 @@ rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,border=hcolor,lwd=hlwd)
 at <- c(32:52, 54:60)
 axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
+u <- par("usr")
+rect(u[1], u[3], u[2], u[4], border=TRUE)
+
+
+########################################
+# legend
+textcolor <- color
+textcolor[2] <- "#af5500"
+textcolor[1] <- "#4a3aad"
+text(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6), u[4]+diff(u[3:4])*0.08,
+     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.5)
+points(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6)-1.5, rep(u[4]+diff(u[3:4])*0.08,3),
+     pch=21, bg=color, xpd=TRUE, cex=1.5)
+
 
 ########################################
 # Data for panel B
 
-u <- par("usr")
 uw <- (u[2]-u[1])*0.04
 load("../Data/Chr6.genotype.map.2013-11-08.RData")
 
@@ -372,6 +402,8 @@ addgn(g)
 rect(1-w1,map[m1]-w2,8+w1,map[m2]+w2,border=hcolor,lwd=hlwd)
 axis(side=1, at=seq(along=MouseNum), labels=MouseNum, las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 
+u <- par("usr")
+rect(u[1], u[3], u[2], u[4], border=TRUE)
 
 dev.off()
 
@@ -452,6 +484,19 @@ rect(32-w1,map[7]-w2, 60+w1,map[8]+w2,border=hcolor,lwd=hlwd)
 at <- c(32:52, 54:60)
 axis(side=1, at=at, labels=MouseNum[at], las=2, tick=FALSE, mgp=c(0, 0.4, 0))
 axis(side=1, at=53, labels=MouseNum[53], las=2, col.axis="firebrick", tick=FALSE, mgp=c(0, 0.4, 0))
+u <- par("usr")
+rect(u[1], u[3], u[2], u[4], border=TRUE)
+
+
+########################################
+# legend
+textcolor <- color
+textcolor[2] <- "#af5500"
+textcolor[1] <- "#4a3aad"
+text(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6), u[4]+diff(u[3:4])*0.08,
+     c("BB", "BR", "RR"), col=textcolor, xpd=TRUE, cex=1.5)
+points(u[1]+diff(u[1:2])*c(0.4, 0.5, 0.6)-1.5, rep(u[4]+diff(u[3:4])*0.08,3),
+     pch=21, bg=color, xpd=TRUE, cex=1.5)
 
 
 
