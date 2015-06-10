@@ -14,15 +14,15 @@ function (x, xlab = "Map position (cM)", ylab = "LOD", mgp = c(1.6,
     map <- x$map
     map.marker <- x$map.marker
     rg <- range(map)
-    ylim <- c(min(0, min(maxLOD, LOD1, LOD2, na.rm = TRUE)),
-        max(maxLOD, LOD1, LOD2, na.rm = TRUE))
+    ylim <- c(0, max(maxLOD, LOD1, LOD2, na.rm = TRUE)*1.05)
     grayplot(y = LOD1, x = map, type = "l", ylim = ylim, xlim = rg,
-        xaxt = "n", xlab = xlab, ylab = ylab, mgp = mgp, lwd=2, ...)
+             xaxt = "n", xlab = xlab, ylab = ylab, mgp = mgp, lwd=2,
+             yat=pretty(ylim), yaxs="i", ...)
     rug(map.marker, ticksize = -0.01)
     points(maxPOS, maxLOD, col = c("slateblue", "violetred")[Group], pch = 20)
     points(x = attr(LODdiff, "LOD1pos"), y = attr(LODdiff, "LOD1lod"),
         col = "black", pch = 17)
-    points(y = c(0, 0), x = attr(LODdiff, "LOD2pos"), col = c("slateblue",
+    points(y = c(2, 2), x = attr(LODdiff, "LOD2pos"), col = c("slateblue",
         "violetred"), pch = 17)
     ind <- arrayInd(which.max(LOD2), .dim = dim(LOD2))
     lines(map, LOD2[, ind[2]], col = "slateblue", lwd=2)
