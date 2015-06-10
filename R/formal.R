@@ -13,6 +13,8 @@ map <- pull.map(f2g)
 toplot <- data.frame(tissue=c("islet", "islet", "kidney", "liver", "adipose"),
                      chr=c(6, 2, 13, 17, 10), stringsAsFactors=FALSE)
 
+source("my_plot_formal.R")
+
 for(i in 1:nrow(toplot)) {
     cat(i,"\n")
 
@@ -24,8 +26,8 @@ for(i in 1:nrow(toplot)) {
 
     result <- get(paste0("test1vs2.", s))
 
-    par(mar=c(3,3,2,2))
-    plot(result, main="LOD profile")
-    plottrace(result, main="LOD diff by cutpoint", xlab="cut point")
+    par(mar=c(3,3,2.6,2), col.main="firebrick", cex.main=2.1)
+    myplot_formal(result, main="LOD profile", ylab="LOD score")
+    myplot_formal_trace(result, main="LOD diff by cutpoint", xlab="cut point")
     dev.off()
 }

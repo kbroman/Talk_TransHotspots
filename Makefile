@@ -32,7 +32,7 @@ Figs/ldapca_islet6.pdf: R/lda_pca.R R/my_plottrans.R
 Figs/effects_islet6.pdf: R/effects.R R/my_plotGenetpattern.R
 	cd R;R CMD BATCH $(<F)
 
-Figs/formal_islet6.pdf: R/formal.R
+Figs/formal_islet6.pdf: R/formal.R R/my_plot_formal.R
 	cd R;R CMD BATCH $(<F)
 
 web: trans_eqtl_hotspots.pdf trans_eqtl_hotspots_withnotes.pdf
