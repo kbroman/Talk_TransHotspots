@@ -26,7 +26,7 @@ for(i in 1:nrow(toplot)) {
 
     result <- get(paste0("test1vs2.", s))
 
-    par(mar=c(3,3,2.6,2), col.main="firebrick", cex.main=2.1)
+    par(mar=c(3,3,2.6,2), col.main="firebrick", cex.main=1.6)
     myplot_formal(result, main="LOD profile", ylab="LOD score")
     myplot_formal_trace(result, main="LOD diff by cutpoint", xlab="cut point")
     dev.off()
