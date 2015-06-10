@@ -46,6 +46,14 @@
 }
 
 \note{
+  This is a talk for the 2015 Complex Trait Community (CTC) meeting in
+  Portland, Oregon, 11 June 2015.
+
+  My graduate student, Jianan Tian, did half of the thinking and all
+  of the work.
+
+  The source for the slides is at GitHub:
+  {\tt https://github.com/kbroman/Talk\_TransHotSpots}
 }
 
 }
@@ -84,6 +92,29 @@
 \figw{Figs/plot-eqtl.pdf}{1.1}
 
 \note{
+    \vspace*{-12pt}
+    In collaboration with Alan Attie, we've been studying
+    a B6$\times$BTBR intercross, with all mice knocked out for leptin
+    (and so obese), in order to understand obesity-induced diabetes.
+
+    There are 500 intercross mice, phenotyped at a large number of
+    clinical traits, and also with gene expression microarray data on
+    6 tissues. These were custom two-color Agilent arrays.
+
+    This figure shows the basic result of single-QTL genome scan for
+    each expression trait, one at a time, in each tissue. Each dot is
+    an inferred QTL. The y-axis is the location of the corresponding
+    microarray probe, and the x-axis is the location of the QTL.
+
+    We see a prominant diagonal, of local-eQTL, and numerous prominent
+    vertical bands: ``\emph{trans}-eQTL hotspots'' where genotype at a give
+    region is associated with the mRNA expression of numerous genes across
+    the genome. Some of these \emph{trans}-eQTL hotspots are specific
+    to a given tissue (e.g. islet chr 6) and some are seen in many
+    tissues (e.g. chr 17).
+
+    We seek to fine-map these \emph{trans}-eQTL hotspots, and to
+    determine whether they involve one or multiple eQTL.
 }
 
 \end{frame}
@@ -93,6 +124,21 @@
 \figw{Figs/chr6_lod.pdf}{1.1}
 
 \note{
+  I'm particularly interested in the locus on chromosome 6, which
+  affects like 8\% of genes in pancreatic islets, but is entirely
+  specific to islets.
+
+  Each dot corresponds to the peak LOD score of a single expression
+  trait: the LOD score vs the position at which it occurred. The blue
+  dots are for expression traits that exist on other chromosomes; the
+  brown dots are for expression traits that reside on chromosome 6.
+
+  The local-eQTL are similar for the six tissues, but the hotspot on
+  distal chr 6 in islets is seen only in islets.
+
+  Assuming this is a single gene, how can we define a precise interval
+  for the gene? We'd like to refine the localization and
+  actually determine the responsible gene.
 }
 
 \end{frame}
@@ -102,6 +148,11 @@
 \centerline{\Large \ticolor Consider the non-recombinants\dots}
 
 \note{
+  Our key strategy is to focus on the non-recombinant mice (that is,
+  those mice that have no recombination event in the region of this
+  eQTL). For these mice, we \emph{know} their QTL genotype. We can use
+  this to establish the distribution of the multivariate expression
+  phenotype in each genotype group.
 }
 
 \end{frame}
@@ -116,6 +167,26 @@
 \figh{Figs/islet_c6_pca.pdf}{0.8}
 
 \note{
+  We focused on the 177 microarray probes that are not on chromosome 6
+  and that map to this region with LOD score $>$ 100.
+
+  We exclude expression traits that reside on chromosome 6, thinking
+  that they might be affected by separate, local-eQTL rather than the
+  present locus of interest.
+
+  We first focus on mice that had no recombination event in the 10 cM
+  interval surrounding the eQTL, apply principal components analysis,
+  and make a scatter plot of the first two principal components. Each
+  dot is a mouse. There are three clear clusters which correspond to
+  the three possible QTL genotypes.
+
+  There were 74 mice that showed a recombination event in the
+  interval; they all fall clearly into one of the three clusters.
+  We can infer their eQTL genotype based on the cluster into which
+  they fall.
+
+  In this manner, the multivariate gene expression phenotype is
+  converted to a co-dominant Mendelian phenotype.
 }
 
 \end{frame}
