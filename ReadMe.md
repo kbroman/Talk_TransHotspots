@@ -7,6 +7,9 @@ in Portland, Oregon, on 11 June 2015. I gave a version of this talk
 [Jackson Lab Center for Genome Dynamics](http://cgd.jax.org) on 10 Feb
 2015.
 
+I've not included the primary data in the repository, so you won't be
+able to build the slides.
+
 The compiled slides:
 [pdf](https://www.biostat.wisc.edu/~kbroman/presentations/trans_eqtl_hotspots.pdf) |
 [pdf with notes](https://www.biostat.wisc.edu/~kbroman/presentations/trans_eqtl_hotspots_withnotes.pdf)
