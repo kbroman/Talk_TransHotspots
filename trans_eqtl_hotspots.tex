@@ -206,6 +206,27 @@
 \figw{Figs/islet_c6_geno_C.pdf}{1.1}
 
 \note{
+  Using these inferred eQTL genotypes, we can locate the QTL to a
+  single 3.5 Mbp interval between two markers (top panel). There are
+  29 mice (highlighted) that showed a recombination event in that
+  interval.
+
+  Genotyping an additional four markers in the interval in 28/29 of
+  these mice (for one mouse, DNA was not available) reduced the QTL
+  interval to 900 kbp (lower-left panel). There were eight mice
+  (highlighted) that showed a recombination event in this interval.
+
+  Additional genotyping of these eight mice reduced the QTL interval
+  to 298 kbp. This interval contains just three genes. Additional
+  genotyping cannot exclude any of these genes.
+
+  Our best candidate is \emph{Slco1a6}, which is a transporter of bile
+  acids, some of which can have large effect on gene expression. B6
+  and BTBR show a number of coding variants in this gene, one of which
+  is plausibly functional. Bruno Hagenbuch at the University of Kansas
+  Medical Center has shown that the two variants differ in activity,
+  but we've not completely proven that \emph{Slco1a6} is responsible
+  for the huge expression difference in pancreatic islets.
 }
 
 \end{frame}
@@ -216,6 +237,12 @@
 \centerline{\Large \ticolor Is it one QTL?}
 
 \note{
+  We now turn to the ``dissection'' part of the talk.
+
+  That chromosome 6 eQTL for islets looked like a single gene, but how
+  can we tell? We've developed a number of graphical diagnostics, plus
+  a formal statistical test of one vs two QTL for a \emph{trans}-eQTL
+  hotspot.
 }
 
 \end{frame}
@@ -225,6 +252,8 @@
 \centerline{\Large \ticolor Consider the QTL effects\dots}
 
 \note{
+  First, let's look at the effects of the QTL on the expression traits
+  that map to the region.
 }
 
 \end{frame}
@@ -235,6 +264,18 @@
 \figw{Figs/effects_islet6.pdf}{1.2}
 
 \note{
+  Here's the islet c6 locus we've been studying. On the left is a plot
+  of LOD score vs QTL position; we're using a signed LOD score, with
+  the sign taken from the estimated additive effect of the QTL on the
+  corresponding expression trait. (Each dot is a single expression
+  trait.)
+
+  On the right is a plot of the estimated dominance effect vs the
+  estimated additive effect.
+
+  The QTL looks to be additive for all expression traits, and there
+  are approximately equal numbers of traits where the B6 allele is
+  associated with increased and decreased expression.
 }
 
 \end{frame}
@@ -243,6 +284,26 @@
 \figw{Figs/effects_kidney13.pdf}{1.2}
 
 \note{
+  Here's a \emph{trans}-eQTL hotspot on chr 13, for kidney. We're
+  considering a pretty wide interval here, but the pattern is
+  interesting and instructive.
+
+  There looks to be a QTL at about 57 cM, and then another at about 68
+  cM. For the proximal locus, the B6 allele is associated with
+  decreased expression for all traits. The distal locus has the
+  opposite pattern, though there are some in each direction.
+
+  In the right panel, we see that there are a group of traits where
+  the BTBR allele is dominant, and from the combination of the two
+  figures, we can infer that these correspond to the proimal locus. At
+  the distal locus, the B6 allele is dominant.
+
+  That the two loci show such distinctive inheritance patterns is
+  strong evidence that they are in fact distinct.
+
+  Of course, they're rather far apart, and so we'd probably come to
+  this conclusion anyway. But imagine the case that these were sitting
+  just 5 cM apart. Consideration of the QTL effects could be useful.
 }
 
 \end{frame}
@@ -251,6 +312,9 @@
 \figw{Figs/effects_islet2.pdf}{1.2}
 
 \note{
+  Here's another example: islet, chr 2. This is a bit of a muddle.
+
+  Note the additive effects, in both directions.
 }
 
 \end{frame}
@@ -259,6 +323,8 @@
 \figw{Figs/effects_liver17.pdf}{1.2}
 
 \note{
+Here's liver, chr 17. Again, not clear evidence for two QTL. Here,
+BTBR looks to be dominant, but again with effects in both directions.
 }
 
 \end{frame}
@@ -267,6 +333,12 @@
 \figw{Figs/effects_adipose10.pdf}{1.2}
 
 \note{
+One last example: adipose, chr 10. Again, no clear evidence for two
+QTL, but note the two expression traits with large effects, mapping to
+54 cM.
+
+Again, BTBR looks to be dominant, and again with effects in both
+directions.
 }
 
 \end{frame}
@@ -280,6 +352,15 @@
   and non-recombinants.
 
 \note{
+A second strategy is to compare the recombinants and
+non-recombinants, much as we'd done in fine-mapping the islet chr 6
+locus.
+
+We can use the non-recombinants to establish the relationship between
+eQTL genotype and the multivariate expression phenotype. If the
+effects are strong, we should be able to discern three clear
+clusters. If there's a single QTL, the recombinants should fit clearly
+within these three clusters.
 }
 
 \end{frame}
@@ -289,6 +370,23 @@
 \figw{Figs/ldapca_islet6.pdf}{1.2}
 
 \note{
+Here's the islet chr 6 locus again.
+
+On the left, we use linear
+discriminant analysis to form a classifier of genotype based on
+expression phenotype, using just the non-recombinant mice.
+On the right, we use principal component analysis, again just with the
+non-recombinant mice.
+
+We look to see whether the recombinant mice fall into the clusters
+defined by the non-recombinant mice.
+
+In this case, the recombinants look just like the non-recombinants,
+which is consistent with there being a single eQTL.
+
+Note that the PCA figure (on the right) is a bit different than the
+one I'd shown earlier. We're focusing on the top 50 expression traits
+here; before we looked at all traits mapping with LOD $>$ 100.
 }
 
 \end{frame}
@@ -297,6 +395,11 @@
 \figw{Figs/ldapca_kidney13.pdf}{1.2}
 
 \note{
+  Here's kidney chr 13.
+
+  The three clusters are not so clearly defined. The recombinants
+  don't look too different from the non-recombinants, but it's all a
+  bit of a mess. These ideas aren't always helpful.
 }
 
 \end{frame}
@@ -305,6 +408,14 @@
 \figw{Figs/ldapca_islet2.pdf}{1.2}
 
 \note{
+  Here's islet chr 2. The LDA plot shows distinct clusters for the
+  non-recombinant mice. PCA is a bit of a mess. As we'll see, the PCA
+  figure is always a bit of a mess. We prefer LDA for this.
+
+  Most interesting: the recombinant mice (in yellow) {\hilit don't}
+  all fall within the clusters defined by the non-recombinant
+  mice. This is good evidence for there being multiple QTL in the
+  region.
 }
 
 \end{frame}
@@ -313,6 +424,9 @@
 \figw{Figs/ldapca_liver17.pdf}{1.2}
 
 \note{
+  Here's liver chr 17. It's not as clear as the previous example, but
+  it does seem that the recombinant mice are different from the
+  non-recombinant mice.
 }
 
 \end{frame}
@@ -321,6 +435,9 @@
 \figw{Figs/ldapca_adipose10.pdf}{1.2}
 
 \note{
+  Here's adipose chr 10. The non-recombinant clusters are quite tight,
+  and some of the recombinant mice fall outside of
+  those clusters, indicating multiple QTL.
 }
 
 \end{frame}
