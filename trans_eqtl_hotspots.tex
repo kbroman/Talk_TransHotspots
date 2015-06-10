@@ -466,15 +466,17 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 
 \note{
   As a formal test of whether a \emph{trans}-eQTL hotspot is due to
-  one or multiple QTL, we use multivariate QTL analysis with a one- or
-  two-QTL model. In the two-QTL model, each expression trait is
+  one or multiple QTL, we use multivariate QTL analysis with one- and
+  two-QTL models. In the two-QTL model, each expression trait is
   affected by one or the other QTL.
 
-  A key technical difficulty is that this two-QTL model requires
+  A key technical difficulty is that the two-QTL model requires
   consideration of all possible partitions of expression traits
   between the two QTL. As an approximation, we sort the traits by
-  their estimated QTL locations and then consider only cut-points on
-  this list: $p-1$ partitions rather than $2^p$.
+  their estimated QTL locations, when considered individually, and
+  then consider only cut-points on this list: $\text{\emph{p}}-1$ partitions rather
+  than $2^{\text{\emph{p}}-1}$. For each cut-point, we perform a two-dimensional scan
+  for the pair of QTL locations.
 
   We use a parametric bootstrap (simulate data from the estimated
   single-QTL model) or a stratified permutation test (permute mice
@@ -491,17 +493,14 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 \note{
   I'll start with a locus with clear evidence for two QTL.
 
-  On the left: We do a two-dimensional scan for the pair of locations
-  under the two-QTL model, for each possible split of the transcripts
-  into two groups. The blue and red curves are profiles for the
+  On the left: The blue and red curves are LOD profiles for the
   location of the two QTL (for the split that gave the best fit):
   slices through the 2d LOD surface, keeping the other QTL location
   fixed. The black curve is the LOD profile for the single-QTL
-  model. the dots at the bottom are the estimated QTL locations for
-  the expression traits, considered individually. The triangles are
-  the estimated locations of the two QTL, under the two-QTL
-  model. There's a block triangle at the estimated QTL location for
-  the single-QTL model.
+  model. The dots at the bottom are the estimated QTL locations for
+  the expression traits, considered individually. The triangles at the
+  bottom are the estimated locations of the two QTL, under the two-QTL
+  model.
 
   On the right: the difference between the LOD score for the two-QTL
   model for a given cut-point and that for the single-QTL model, for
@@ -542,10 +541,10 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 
 \note{
 Liver chromosome 7: good evidence for two QTL, but it's splitting off
-just the first two expression traits. We should omit those two and
-look for evidence for multiple QTL among the rest. The high LOD
-differences that split at 25 suggests there would still be evidence
-for multiple QTL, among those traits.
+just the first expression trait. We should omit this one and look for
+evidence for multiple QTL among the rest. The high LOD differences for
+the split at 23 suggests there would still be evidence for multiple
+QTL, among those traits.
 }
 
 \end{frame}
@@ -555,8 +554,15 @@ for multiple QTL, among those traits.
 
 \note{
 Last one: good evidence for two QTL, but it's pulling off just a
-couple of expression traits. Again, it seems we might focus on a
-more focused interval.
+couple of expression traits. Again, it seems we might use a more
+focused interval.
+
+There is, of course, room for improvement in this method. I think the
+key issue is how to pick which set of expression traits to focus
+on. The results are quite dependent on this choice. Here we've been
+picking out a QTL interval in a relatively arbitray way and then
+choosing the 50 traits that map to that region with the largest LOD
+score.
 }
 
 \end{frame}
@@ -618,7 +624,8 @@ more focused interval.
 \note{
   Lots of people were involved in this work.
 
-  Jianan did the bulk of the method development and data analysis.
+  Jianan did the bulk of the method development and all of the
+  software development and data analysis.
 
   The data come from Alan and Mark; Angie, Mary, Kathryn,
   and Donald did the work there. Aimee, Christina, and Brian are
@@ -627,10 +634,10 @@ more focused interval.
   Amit worked out the annotation information for this custom
   microarray.
 
-  The project was a collaboration with Eric Schadt, who paid for the
-  microarrays and genotyping when he was at Rosetta.
+  The project was a collaboration with Eric Schadt, whose group did
+  the microarrays and genotyping when he was at Rosetta.
 
-  Bruno and Wei worked to validate the \emph{Slco1a6} gene.
+  Bruno and Wei have been working to validate the \emph{Slco1a6} gene.
 }
 \end{frame}
 
