@@ -465,6 +465,21 @@ here; before we looked at all traits mapping with LOD $>$ 100.
   \end{itemize}
 
 \note{
+  As a formal test of whether a \emph{trans}-eQTL hotspot is due to
+  one or multiple QTL, we use multivariate QTL analysis with a one- or
+  two-QTL model. In the two-QTL model, each expression trait is
+  affected by one or the other QTL.
+
+  A key technical difficulty is that this two-QTL model requires
+  consideration of all possible partitions of expression traits
+  between the two QTL. As an approximation, we sort the traits by
+  their estimated QTL locations and then consider only cutpoints on
+  this list: $p-1$ partitions rather than $2^p$.
+
+  We use a parametric bootstrap (simulate data from the estimated
+  single-QTL model) or a stratified permutation test (permute mice
+  within strata defined by genotypes at the estimated QTL location
+  under the single-QTL model).
 }
 
 \end{frame}
@@ -474,6 +489,27 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 \figw{Figs/formal_kidney13.pdf}{1.2}
 
 \note{
+  I'll start with a locus with clear evidence for two QTL.
+
+  On the left: We do a two-dimensional scan for the pair of locations
+  under the two-QTL model, for each possible split of the transcripts
+  into two groups. The blue and red curves are profiles for the
+  location of the two QTL (for the split that gave the best fit):
+  slices through the 2d LOD surface, keeping the other QTL location
+  fixed. The black curve is the LOD profile for the single-QTL
+  model. the dots at the bottom are the estimated QTL locations for
+  the expression traits, considered individually. The triangles are
+  the estimated locations of the two QTL, under the two-QTL
+  model. There's a block triangle at the estimated QTL location for
+  the single-QTL model.
+
+  On the right: the difference between the LOD score for the two-QTL
+  model for a given cutpoint and that for the single-QTL model, for
+  each cut point.
+
+  There's very strong evidence for two QTL here (LOD near 40), and a
+  clear inference of which expression traits are affected by the left
+  and the right QTL.
 }
 
 \end{frame}
@@ -482,6 +518,9 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 \figw{Figs/formal_islet6.pdf}{1.2}
 
 \note{
+  Here's the islet chromosome 6 locus. The two-QTL models are never
+  much better than the single-QTL better. We'd conclude that there's a
+  single QTL.
 }
 
 \end{frame}
@@ -490,6 +529,10 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 \figw{Figs/formal_islet2.pdf}{1.2}
 
 \note{
+  Here's islet chromosome 2. Again, very strong evidence for two
+  QTL. It would be interesting to split off the proximal locus and
+  study the distal locus on its own: it's likely that we'll find
+  evidence for three QTL in this region.
 }
 
 \end{frame}
@@ -498,6 +541,11 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 \figw{Figs/formal_liver17.pdf}{1.2}
 
 \note{
+Liver chromosom 7: good evidence for two QTL, but it's splitting off
+just the first two expression traits. We should omit those two and
+look for evidence for multiple QTL among the rest. The high LOD
+differences that split at 25 suggests there would still be evidence
+for multiple QTL, among those traits.
 }
 
 \end{frame}
@@ -506,6 +554,9 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 \figw{Figs/formal_adipose10.pdf}{1.2}
 
 \note{
+Last one: good evidence for two QTL, but it's pulling off just a
+couple of expression traits. Again, it seems we might focus on a
+more focused interval.
 }
 
 \end{frame}
@@ -537,6 +588,7 @@ here; before we looked at all traits mapping with LOD $>$ 100.
   \end{itemize}
 
 \note{
+  It's always good to include a summary slide.
 }
 
 \end{frame}
@@ -564,6 +616,21 @@ here; before we looked at all traits mapping with LOD $>$ 100.
 }
 
 \note{
+  Lots of people were involved in this work.
+
+  Jianan did the bulk of the method development and data analysis.
+
+  The data come from Alan and Mark; Angie, Mary, Kathryn,
+  and Donald did the work there. Aimee, Christina, and Brian are
+  collaborating with me on the analysis.
+
+  Amit worked out the annotation information for this custom
+  microarray.
+
+  The project was a collaboration with Eric Schadt, who paid for the
+  microarrays and genotyping when he was at Rosetta.
+
+  Bruno and Wei worked to validate the \emph{Slco1a6} gene.
 }
 \end{frame}
 
