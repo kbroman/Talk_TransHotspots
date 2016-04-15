@@ -7,9 +7,9 @@ library(simcross)
 
 color <- brocolors("crayons")[c("Cornflower", "Blush")]
 
-png(file="../Figs/intercross.png", width=1180, height=800, res=108,
-    pointsize=14, bg="transparent")
-par(fg="white", bty="n")
+pdf(file="../Figs/intercross.pdf", width=10, height=7.5,
+    pointsize=14)
+par(fg="black", bty="n")
 
 plot(0,0,xlim=c(0,864),ylim=c(0,480),xaxt="n",yaxt="n",xlab="",ylab="",type="n")
 rect(c(300,328),c(480,480),c(310,338),c(385,385),col=color[1],border=color[1], lend=1, ljoin=1)
