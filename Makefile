@@ -36,4 +36,5 @@ Figs/formal_islet6.pdf: R/formal.R R/my_plot_formal.R
 	cd R;R CMD BATCH $(<F)
 
 web: trans_eqtl_hotspots.pdf trans_eqtl_hotspots_withnotes.pdf
-	scp $^ broman-10.biostat.wisc.edu:public_html/presentations/
+	scp trans_eqtl_hotspots.pdf broman-10.biostat.wisc.edu:Website/presentations/cornell2016.pdf
+	scp trans_eqtl_hotspots_withnotes.pdf broman-10.biostat.wisc.edu:Website/presentations/cornell2016_withnotes.pdf
