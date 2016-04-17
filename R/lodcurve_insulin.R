@@ -2,8 +2,8 @@ library(qtl)
 library(lineup)
 library(broman)
 
-color <- brocolors("crayons")[c("Cornflower", "Tickle Me Pink", "Robin's Egg Blue")]
-fgcolor <- "white"
+color <- brocolors("crayons")[c("Denim", "Jazzberry Jam", "Midnight Blue")]
+fgcolor <- "black"
 
 file <- "cache/insulin_lod.RData"
 if(file.exists(file)) {
@@ -37,19 +37,19 @@ if(file.exists(file)) {
   save(out, g, y, me, ci, operm, file=file)
 }
 
-png("../Figs/lodcurve_insulin.png", width=1080, height=700, pointsize=14, res=108,
-    bg="transparent")
+pdf("../Figs/lodcurve_insulin.pdf", width=10, height=7.5, pointsize=14)
 par(fg=fgcolor, col=fgcolor, col.axis=fgcolor, col.lab=fgcolor)
-par(mar=c(5.1,4.1,0.1,0.1))
-plot(out, col=color[1], ylab="LOD score")
+par(mar=c(5.1,4.1,2.1,0.1))
+plot(out, col=color[1], ylab="LOD score", bandcol="gray92", incl.markers=FALSE, yaxs="i",
+     ylim=c(0, 9))
 abline(h=quantile(operm, 0.95), lty=2, col=color[2])
 dev.off()
 
-png("../Figs/lodcurve_insulin_with_effects.png", width=1080, height=700, pointsize=14, res=108,
-    bg="transparent")
+pdf("../Figs/lodcurve_insulin_with_effects.pdf", width=10, height=7.5, pointsize=14)
 par(fg=fgcolor, col=fgcolor, col.axis=fgcolor, col.lab=fgcolor)
-par(mar=c(5.1,4.1,0.1,0.1))
-plot(out, col=color[1], ylab="LOD score")
+par(mar=c(5.1,4.1,2.1,0.1))
+plot(out, col=color[1], ylab="LOD score", bandcol="gray92", incl.markers=FALSE, yaxs="i",
+     ylim=c(0, 9))
 abline(h=quantile(operm, 0.95), lty=2, col=color[2])
 yd <- 1
 xl <- xaxisloc.scanone(out, c(4,8), c(0,0))
@@ -57,12 +57,15 @@ yl <- c(max(out, chr=5:7)[,3]+yd, par("usr")[4]-yd*0.1)
 mx <- max(out)
 mx.x <- xaxisloc.scanone(out, mx[[1]], mx[[2]])
 mx.y <- mx[[3]]
+
+rect(xl[1], yl[1], xl[2], yl[2], border=fgcolor, col="white")
+
 for(y in yl)
-  segments(mx.x, mx.y, xl[1], y, lty=2, col="gray70")
+  segments(mx.x, mx.y, xl[1], y, lty=2, col="black", lend=1, ljoin=1)
 xat <- seq(xl[1], xl[2], len=7)[c(2,4,6)]
-for(x in xat)
-    segments(x, yl[1], x, yl[2], lwd=5, col="gray20")
-text(xat, rep(yl[1]-yd*0.3, length(xat)), names(me))
+text(xat, rep(yl[1]-yd*0.25, length(xat)), names(me))
+
+rect(xl[1], yl[1], xl[2], yl[2], border=fgcolor, col=NA)
 
 library(scales)
 yaxlab <- yax <- pretty(range(ci))
@@ -75,16 +78,16 @@ yax <- yax[yax > yl[1] & yax < yl[2]]
 
 xw <- diff(xat)[1]
 
+
 for(y in yax)
-  segments(xl[1], y, xl[2], y, col="gray40")
+  segments(xl[1], y, xl[2], y, col="gray82", lend=1, ljoin=1)
 text(xl[2]+xw*0.05, yax, myround(yaxlab, 1), adj=c(0, 0.5), cex=0.8)
 
-rect(xl[1], yl[1], xl[2], yl[2], border=fgcolor)
 
-segments(xat-xw*0.1, me, xat+xw*0.1, me, col=color[3], lwd=2)
-segments(xat, ci[1,], xat, ci[2,], col=color[3], lwd=2)
+segments(xat-xw*0.1, me, xat+xw*0.1, me, col=color[3], lwd=2, lend=1, ljoin=1)
+segments(xat, ci[1,], xat, ci[2,], col=color[3], lwd=2, lend=1, ljoin=1)
 for(i in 1:2)
-  segments(xat-xw*0.05, ci[i,], xat+xw*0.05, ci[i,], col=color[3], lwd=2)
+  segments(xat-xw*0.05, ci[i,], xat+xw*0.05, ci[i,], col=color[3], lwd=2, lend=1, ljoin=1)
 
 
 dev.off()
