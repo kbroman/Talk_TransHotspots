@@ -1,7 +1,7 @@
 R_opt = --no-save --no-restore --no-site-file --no-init-file  ## --no-environ
 STEM = trans_eqtl_hotspot
 
-trans_eqtl_hotspots.pdf: trans_eqtl_hotspots.tex Figs/plot-eqtl.pdf Figs/chr6_lod.pdf Figs/islet_c6_pca.pdf Figs/islet_c6_geno_C.pdf Figs/ldapca_islet6.pdf Figs/effects_islet6.pdf Figs/formal_islet6.pdf header.tex Figs/intercross.pdf Figs/lodcurve_insulin.pdf
+trans_eqtl_hotspots.pdf: trans_eqtl_hotspots.tex Figs/plot-eqtl.pdf Figs/chr6_lod.pdf Figs/islet_c6_pca.pdf Figs/islet_c6_geno_C.pdf Figs/ldapca_islet6.pdf Figs/effects_islet6.pdf Figs/formal_islet6.pdf header.tex Figs/intercross.pdf Figs/lodcurve_insulin.pdf Figs/nonrec_illustrationA.pdf
 	xelatex $<
 
 trans_eqtl_hotspots_withnotes.tex: trans_eqtl_hotspots.tex
@@ -39,6 +39,9 @@ Figs/intercross.pdf: R/intercross.R
 	cd R;R CMD BATCH $(<F)
 
 Figs/lodcurve_insulin.pdf: R/lodcurve_insulin.R
+	cd R;R CMD BATCH $(<F)
+
+Figs/nonrec_illustrationA.pdf: R/nonrec_illustration.R
 	cd R;R CMD BATCH $(<F)
 
 web: trans_eqtl_hotspots.pdf trans_eqtl_hotspots_withnotes.pdf
