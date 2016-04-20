@@ -1,13 +1,13 @@
 ## Talk on &ldquo;Dissection and fine-mapping of _trans_-eQTL hotspots&rdquo;
 
-These are slides for a talk that I gave at the
+These are slides for a talk that I gave to the
+[Jackson Lab Center for Genome Dynamics](http://cgd.jax.org)
+(remotely) on 10 Feb 2015, at the
 [Complex Trait Community meeting](http://www.complextrait.org/ctc2015/)
-in Portland, Oregon, on 11 June 2015. I also gave a version of this
-talk (remotely) to the
-[Jackson Lab Center for Genome Dynamics](http://cgd.jax.org) on 10 Feb
-2015 and at the
+in Portland, Oregon, on 11 June 2015, and at the
 [Department of Biological Statistics and Computational Biology](https://bscb.cornell.edu)
-at [Cornell University](http://www.cornell.edu/) on 18 Apr 2016.
+at [Cornell University](http://www.cornell.edu/) on 18 Apr 2016. The
+slides were changed a bit each time.
 
 I've not included the primary data in the repository, so you won't be
 able to build the slides.
