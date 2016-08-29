@@ -48,5 +48,5 @@ Figs/effect_illustrationA.pdf: R/effect_illustration.R
 	cd R;R CMD BATCH $(<F)
 
 web: trans_eqtl_hotspots.pdf trans_eqtl_hotspots_withnotes.pdf
-	scp trans_eqtl_hotspots.pdf broman-10.biostat.wisc.edu:Website/presentations/cornell2016.pdf
-	scp trans_eqtl_hotspots_withnotes.pdf broman-10.biostat.wisc.edu:Website/presentations/cornell2016_withnotes.pdf
+	scp trans_eqtl_hotspots.pdf broman-10.biostat.wisc.edu:Website/presentations/qrw2016.pdf
+	scp trans_eqtl_hotspots_withnotes.pdf broman-10.biostat.wisc.edu:Website/presentations/qrw2016_withnotes.pdf
