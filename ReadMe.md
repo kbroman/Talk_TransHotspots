@@ -6,16 +6,19 @@ These are slides for a talk that I gave to the
 [Complex Trait Community meeting](http://www.complextrait.org/ctc2015/)
 in Portland, Oregon, on 11 June 2015, the
 [Department of Biological Statistics and Computational Biology](https://bscb.cornell.edu)
-at [Cornell University](http://www.cornell.edu/) on 18 Apr 2016, and
+at [Cornell University](http://www.cornell.edu/) on 18 Apr 2016,
 for the Queenstown Research Week conference in Nelson, New Zealand, on 1 Sep
-2016.  The slides were changed a bit each time.
+2016, and at the
+[Genetics Program](https://genetics.sciences.ncsu.edu),
+[North Carolina State University](https://ncsu.edu), in Raleigh, NC,
+on 6 Feb 2017. The slides were changed a bit each time.
 
 I've not included the primary data in the repository, so you won't be
 able to build the slides.
 
 The compiled slides:
-[pdf](https://www.biostat.wisc.edu/~kbroman/presentations/qrw2016.pdf) |
-[pdf with notes](https://www.biostat.wisc.edu/~kbroman/presentations/qrw2016_withnotes.pdf)
+[pdf](https://www.biostat.wisc.edu/~kbroman/presentations/ncsu2016.pdf) |
+[pdf with notes](https://www.biostat.wisc.edu/~kbroman/presentations/ncsu2016_withnotes.pdf)
 
 ---
 
